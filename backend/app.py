@@ -1,12 +1,8 @@
-import os
 from flask import Flask, render_template
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
-# Caminho para o diretório do frontend
-frontend_path = os.path.join(os.path.dirname(__file__), 'frontend')
-
-app = Flask(__name__, template_folder=frontend_path)
+app = Flask(__name__, template_folder='backend/template')
 CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///backend/database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
